@@ -1,6 +1,4 @@
 import Button from '@mui/material/Button';
-import Avatar from '@mui/material/Avatar';
-import TextField from '@mui/material/TextField';
 import { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
@@ -64,7 +62,7 @@ const SecondPage: React.FC = () => {
         navigate('/')
     }
     return (
-        <div>
+        <div data-testid="sceondPage">
             <Box>
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}
                     direction="row"
@@ -78,7 +76,7 @@ const SecondPage: React.FC = () => {
                             <img width={100} height={100} alt="img" src={countryWether.icon} />
                             <h1>Country name : {countryWether.countryName} </h1>
                             <h1>Country Capital : {countryWether.countryCapital} </h1>
-                            <Button variant='contained' onClick={backToFrist}>back to start page</Button>
+                            <Button variant='contained' data-testid="Button2" onClick={backToFrist}>back to start page</Button>
                         </Item>
                     </Grid>
                 </Grid>

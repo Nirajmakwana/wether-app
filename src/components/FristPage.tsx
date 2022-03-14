@@ -49,10 +49,12 @@ const FristPage: React.FC = () => {
           <Grid item xs={6}>
             <Item>
               <div>
-                <TextField label="wether" variant="outlined" onChange={(e) => setCountry(e.target.value)} />
+                <TextField inputProps={{
+                  "data-testid": "input",
+                }} label="wether" variant="outlined" onChange={(e) => setCountry(e.target.value)} />
               </div>
               <div>
-                <Button disabled={country.length == 0} onClick={getWether} variant="contained" >FETCH DATA</Button>
+                <Button disabled={country.length == 0} onClick={getWether} data-testid='Button' variant="contained" >FETCH DATA</Button>
               </div>
             </Item>
             {/* <Item>

@@ -3,9 +3,7 @@ import { useNavigate } from 'react-router'
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
-import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
 
 interface dataType {
     capital?: string
@@ -37,13 +35,15 @@ const SceondLogin = () => {
         const data = await response.json();
         data.map((item: any) => {
             console.log(item.latlng[1])
-            setData({
-                capital: item.capital,
-                population: item.population,
-                lating1: item.latlng[0],
-                lating2: item.latlng[1],
-                flag: item.flags.png
-            })
+            return (
+                setData({
+                    capital: item.capital,
+                    population: item.population,
+                    lating1: item.latlng[0],
+                    lating2: item.latlng[1],
+                    flag: item.flags.png
+                })
+            )
         })
 
     }
@@ -52,13 +52,13 @@ const SceondLogin = () => {
     }, [])
 
     return (
-        <div>
+        <div data-testid="sceondLogin" >
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}
                 direction="row"
                 justifyContent="center"
                 alignItems="center">
                 <Grid item xs={6}>
-                    <Item>
+                    <Item >
                     </Item>
                     <Item>
                         <div>
@@ -76,7 +76,7 @@ const SceondLogin = () => {
                         <div>
                             <img width={100} height={100} alt="img" src={Data.flag} />
                         </div>
-                        <Button variant='contained' onClick={() => navigate('/login')}>
+                        <Button variant='contained' data-testid="ButtonLogin" onClick={() => navigate('/login')}>
                             go next
                         </Button>
                     </Item>
